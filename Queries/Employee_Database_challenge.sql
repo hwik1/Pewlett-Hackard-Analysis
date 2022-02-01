@@ -24,11 +24,12 @@ WHERE to_date = ('9999-01-01')
 ORDER BY emp_no, to_date DESC;
 
 -- Deliverable 1: Create a table with the count of employees retiring by title in Retiring Titles table
-SELECT DISTINCT(title),
-	COUNT(emp_no)
+SELECT DISTINCT(title)
+	, COUNT(emp_no)
 INTO  retiring_titles
 FROM unique_titles
-GROUP BY title;
+GROUP BY title
+ORDER BY COUNT DESC;
 
 -- Deliverable 2: Create a Mentorship Eligibility table
 SELECT DISTINCT ON(e.emp_no) e.emp_no,
